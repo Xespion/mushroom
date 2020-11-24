@@ -14,6 +14,14 @@
 		FA447CA5256582DC00BE2B00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA447CA3256582DC00BE2B00 /* LaunchScreen.storyboard */; };
 		FA447CB0256582DD00BE2B00 /* mushroomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA447CAF256582DD00BE2B00 /* mushroomTests.swift */; };
 		FA447CBB256582DE00BE2B00 /* mushroomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA447CBA256582DE00BE2B00 /* mushroomUITests.swift */; };
+		FAB91890256D2E3300974E85 /* mushroom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAB9188E256D2E3300974E85 /* mushroom.xcdatamodeld */; };
+		FAB91892256D355400974E85 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB91891256D355400974E85 /* MenuViewController.swift */; };
+		FAB91896256D359A00974E85 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB91895256D359A00974E85 /* RegistroViewController.swift */; };
+		FAB91898256D35DC00974E85 /* NewSetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB91897256D35DC00974E85 /* NewSetaViewController.swift */; };
+		FAB9189D256D38D900974E85 /* Mushroom+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB91899256D38D900974E85 /* Mushroom+CoreDataClass.swift */; };
+		FAB9189E256D38DA00974E85 /* Mushroom+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9189A256D38D900974E85 /* Mushroom+CoreDataProperties.swift */; };
+		FAB9189F256D38DA00974E85 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9189B256D38D900974E85 /* User+CoreDataClass.swift */; };
+		FAB918A0256D38DA00974E85 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9189C256D38D900974E85 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +55,14 @@
 		FA447CB6256582DE00BE2B00 /* mushroomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mushroomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA447CBA256582DE00BE2B00 /* mushroomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mushroomUITests.swift; sourceTree = "<group>"; };
 		FA447CBC256582DE00BE2B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAB9188F256D2E3300974E85 /* mushroom.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mushroom.xcdatamodel; sourceTree = "<group>"; };
+		FAB91891256D355400974E85 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		FAB91895256D359A00974E85 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
+		FAB91897256D35DC00974E85 /* NewSetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSetaViewController.swift; sourceTree = "<group>"; };
+		FAB91899256D38D900974E85 /* Mushroom+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mushroom+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FAB9189A256D38D900974E85 /* Mushroom+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mushroom+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAB9189B256D38D900974E85 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FAB9189C256D38D900974E85 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +113,14 @@
 		FA447C99256582CB00BE2B00 /* mushroom */ = {
 			isa = PBXGroup;
 			children = (
+				FAB91894256D356700974E85 /* Controllers */,
+				FAB91893256D355F00974E85 /* Models */,
 				FA447C9A256582CB00BE2B00 /* AppDelegate.swift */,
-				FA447C9C256582CB00BE2B00 /* ViewController.swift */,
 				FA447C9E256582CB00BE2B00 /* Main.storyboard */,
 				FA447CA1256582DC00BE2B00 /* Assets.xcassets */,
 				FA447CA3256582DC00BE2B00 /* LaunchScreen.storyboard */,
 				FA447CA6256582DC00BE2B00 /* Info.plist */,
+				FAB9188E256D2E3300974E85 /* mushroom.xcdatamodeld */,
 			);
 			path = mushroom;
 			sourceTree = "<group>";
@@ -123,6 +141,28 @@
 				FA447CBC256582DE00BE2B00 /* Info.plist */,
 			);
 			path = mushroomUITests;
+			sourceTree = "<group>";
+		};
+		FAB91893256D355F00974E85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAB91899256D38D900974E85 /* Mushroom+CoreDataClass.swift */,
+				FAB9189A256D38D900974E85 /* Mushroom+CoreDataProperties.swift */,
+				FAB9189B256D38D900974E85 /* User+CoreDataClass.swift */,
+				FAB9189C256D38D900974E85 /* User+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FAB91894256D356700974E85 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA447C9C256582CB00BE2B00 /* ViewController.swift */,
+				FAB91891256D355400974E85 /* MenuViewController.swift */,
+				FAB91895256D359A00974E85 /* RegistroViewController.swift */,
+				FAB91897256D35DC00974E85 /* NewSetaViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +297,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA447C9D256582CB00BE2B00 /* ViewController.swift in Sources */,
+				FAB91890256D2E3300974E85 /* mushroom.xcdatamodeld in Sources */,
+				FAB91898256D35DC00974E85 /* NewSetaViewController.swift in Sources */,
+				FAB9189E256D38DA00974E85 /* Mushroom+CoreDataProperties.swift in Sources */,
+				FAB9189D256D38D900974E85 /* Mushroom+CoreDataClass.swift in Sources */,
+				FAB9189F256D38DA00974E85 /* User+CoreDataClass.swift in Sources */,
 				FA447C9B256582CB00BE2B00 /* AppDelegate.swift in Sources */,
+				FAB91896256D359A00974E85 /* RegistroViewController.swift in Sources */,
+				FAB918A0256D38DA00974E85 /* User+CoreDataProperties.swift in Sources */,
+				FAB91892256D355400974E85 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +628,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAB9188E256D2E3300974E85 /* mushroom.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAB9188F256D2E3300974E85 /* mushroom.xcdatamodel */,
+			);
+			currentVersion = FAB9188F256D2E3300974E85 /* mushroom.xcdatamodel */;
+			path = mushroom.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA447C8F256582CB00BE2B00 /* Project object */;
 }
