@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
-
+    
+    //Atributos
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var pw: UITextField!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    //Functions
+    @IBAction func signIn(_ sender: Any)
+    {
+        
     }
 }
 

@@ -27,7 +27,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rWl-PZ-8EW">
                                 <rect key="frame" x="94.5" y="344" width="186" height="30"/>
@@ -38,12 +38,13 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qiv-Bu-tQO">
                                 <rect key="frame" x="142.5" y="397" width="90" height="30"/>
                                 <state key="normal" title="Iniciar sesión"/>
                                 <connections>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jcZ-Xm-eKO"/>
                                     <segue destination="wxM-36-A68" kind="presentation" id="gW3-kd-dNJ"/>
                                 </connections>
                             </button>
@@ -91,6 +92,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="pw" destination="rWl-PZ-8EW" id="xp1-a7-FRS"/>
+                        <outlet property="username" destination="60H-QO-0I4" id="Fsz-RK-Zw0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5y-tS-fdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165.5999999999999" y="347.67616191904051"/>
+            <point key="canvasLocation" x="993" y="134"/>
         </scene>
         <!--New Seta View Controller-->
         <scene sceneID="DaX-hx-Gdt">
@@ -217,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVc-1a-vCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="348"/>
+            <point key="canvasLocation" x="1814" y="134"/>
         </scene>
         <!--Registro View Controller-->
         <scene sceneID="skj-u2-vXV">
@@ -244,6 +249,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1a-Un-ezP">
                                 <rect key="frame" x="148.5" y="557" width="78" height="30"/>
                                 <state key="normal" title="Registrarse"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="O6r-xH-Ivx"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sca-3o-Tls">
                                 <rect key="frame" x="118.5" y="358" width="138" height="168"/>
@@ -298,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbm-re-5dr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1174" y="-322"/>
+            <point key="canvasLocation" x="134" y="-643"/>
         </scene>
     </scenes>
     <resources>
