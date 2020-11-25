@@ -1,5 +1,5 @@
 //
-//  User+CoreDataClass.swift
+//  ListaUsers+CoreDataClass.swift
 //  mushroom
 //
 //  Created by Alex on 25/11/2020.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(User)
-public class User: NSManagedObject {
+@objc(ListaUsers)
+public class ListaUsers: NSManagedObject {
 
 }

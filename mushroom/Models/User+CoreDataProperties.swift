@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  mushroom
 //
-//  Created by Alex on 24/11/2020.
+//  Created by Alex on 25/11/2020.
 //  Copyright © 2020 Alex. All rights reserved.
 //
 //
@@ -17,11 +17,12 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
+    @NSManaged public var image: NSData?
     @NSManaged public var mail: String?
     @NSManaged public var password: String?
     @NSManaged public var username: String?
-    @NSManaged public var image: NSData?
     @NSManaged public var setas: NSSet?
+    @NSManaged public var userInList: ListaUsers?
 
 }
 
