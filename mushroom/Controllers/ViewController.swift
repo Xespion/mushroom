@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  mushroom
-//
-//  Created by Alex on 18/11/2020.
-//  Copyright © 2020 Alex. All rights reserved.
-//
 
 import UIKit
 import CoreData
@@ -16,6 +9,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var pw: UITextField!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var items:[User]?
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +26,43 @@ class ViewController: UIViewController {
     //Functions
     @IBAction func signIn(_ sender: Any)
     {
+        var flag = false
         for  usuario in items!
         {
-            //if username == usuario.username
-            //{
-                //if pw == usuario.pw
-                //{
-                    
-                //}
-            //}
+            if username.text != usuario.username || pw.text != usuario.password
+            {
+                flag = false
+            }
+            
+            if username.text == usuario.username && pw.text == usuario.password
+            {
+                flag = true
+                user = usuario
+            }
+        }
+        
+        if flag == false{
+            print(flag)
+            let alert = UIAlertController(title: "Error", message: "Mala", preferredStyle: .alert)
+            let defaultAc = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(defaultAc)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            print(flag)
+            self.performSegue(withIdentifier: "menu", sender: self)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is MenuViewController
+        {
+            let usuarioIn = segue.destination as? MenuViewController
+            usuarioIn?.usuario = user
+        }
+    }
+    
 }
+
 
