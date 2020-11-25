@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ListaUsers" representedClassName="ListaUsers" syncable="YES" codeGenerationType="class">
-        <relationship name="lista" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="userInList" inverseEntity="User" syncable="YES"/>
+    <entity name="ListaUsers" representedClassName="ListaUsers" syncable="YES">
+        <relationship name="lista" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
     </entity>
     <entity name="Mushroom" representedClassName="Mushroom" syncable="YES">
         <attribute name="lower" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,11 +18,11 @@
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="setas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Mushroom" inverseName="fBuser" inverseEntity="Mushroom" syncable="YES"/>
-        <relationship name="userInList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListaUsers" inverseName="lista" inverseEntity="ListaUsers" syncable="YES"/>
+        <relationship name="userInList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListaUsers" syncable="YES"/>
     </entity>
     <elements>
         <element name="Mushroom" positionX="-54" positionY="18" width="128" height="150"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="ListaUsers" positionX="-63" positionY="63" width="128" height="60"/>
+        <element name="User" positionX="-527.03125" positionY="31.99609375" width="128" height="135"/>
+        <element name="ListaUsers" positionX="-381.99609375" positionY="200.03515625" width="128" height="60"/>
     </elements>
 </model>

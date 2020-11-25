@@ -18,12 +18,12 @@
 		FAB91892256D355400974E85 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB91891256D355400974E85 /* MenuViewController.swift */; };
 		FAB91896256D359A00974E85 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB91895256D359A00974E85 /* RegistroViewController.swift */; };
 		FAB91898256D35DC00974E85 /* NewSetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB91897256D35DC00974E85 /* NewSetaViewController.swift */; };
-		FAE754B5256EBAF70089F691 /* ListaUsers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754AF256EBAF70089F691 /* ListaUsers+CoreDataClass.swift */; };
-		FAE754B6256EBAF70089F691 /* ListaUsers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754B0256EBAF70089F691 /* ListaUsers+CoreDataProperties.swift */; };
-		FAE754B7256EBAF70089F691 /* Mushroom+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754B1256EBAF70089F691 /* Mushroom+CoreDataClass.swift */; };
-		FAE754B8256EBAF70089F691 /* Mushroom+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754B2256EBAF70089F691 /* Mushroom+CoreDataProperties.swift */; };
-		FAE754B9256EBAF70089F691 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754B3256EBAF70089F691 /* User+CoreDataClass.swift */; };
-		FAE754BA256EBAF70089F691 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754B4256EBAF70089F691 /* User+CoreDataProperties.swift */; };
+		FAE754C1256EC2C70089F691 /* Mushroom+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754BB256EC2C70089F691 /* Mushroom+CoreDataClass.swift */; };
+		FAE754C2256EC2C70089F691 /* Mushroom+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754BC256EC2C70089F691 /* Mushroom+CoreDataProperties.swift */; };
+		FAE754C3256EC2C80089F691 /* ListaUsers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754BD256EC2C70089F691 /* ListaUsers+CoreDataClass.swift */; };
+		FAE754C4256EC2C80089F691 /* ListaUsers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754BE256EC2C70089F691 /* ListaUsers+CoreDataProperties.swift */; };
+		FAE754C5256EC2C80089F691 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754BF256EC2C70089F691 /* User+CoreDataClass.swift */; };
+		FAE754C6256EC2C80089F691 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE754C0256EC2C70089F691 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,12 +61,12 @@
 		FAB91891256D355400974E85 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FAB91895256D359A00974E85 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		FAB91897256D35DC00974E85 /* NewSetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSetaViewController.swift; sourceTree = "<group>"; };
-		FAE754AF256EBAF70089F691 /* ListaUsers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListaUsers+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FAE754B0256EBAF70089F691 /* ListaUsers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListaUsers+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FAE754B1256EBAF70089F691 /* Mushroom+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mushroom+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FAE754B2256EBAF70089F691 /* Mushroom+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mushroom+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FAE754B3256EBAF70089F691 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FAE754B4256EBAF70089F691 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAE754BB256EC2C70089F691 /* Mushroom+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mushroom+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FAE754BC256EC2C70089F691 /* Mushroom+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mushroom+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAE754BD256EC2C70089F691 /* ListaUsers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListaUsers+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FAE754BE256EC2C70089F691 /* ListaUsers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListaUsers+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAE754BF256EC2C70089F691 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FAE754C0256EC2C70089F691 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,12 +150,12 @@
 		FAB91893256D355F00974E85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FAE754AF256EBAF70089F691 /* ListaUsers+CoreDataClass.swift */,
-				FAE754B0256EBAF70089F691 /* ListaUsers+CoreDataProperties.swift */,
-				FAE754B1256EBAF70089F691 /* Mushroom+CoreDataClass.swift */,
-				FAE754B2256EBAF70089F691 /* Mushroom+CoreDataProperties.swift */,
-				FAE754B3256EBAF70089F691 /* User+CoreDataClass.swift */,
-				FAE754B4256EBAF70089F691 /* User+CoreDataProperties.swift */,
+				FAE754BB256EC2C70089F691 /* Mushroom+CoreDataClass.swift */,
+				FAE754BC256EC2C70089F691 /* Mushroom+CoreDataProperties.swift */,
+				FAE754BD256EC2C70089F691 /* ListaUsers+CoreDataClass.swift */,
+				FAE754BE256EC2C70089F691 /* ListaUsers+CoreDataProperties.swift */,
+				FAE754BF256EC2C70089F691 /* User+CoreDataClass.swift */,
+				FAE754C0256EC2C70089F691 /* User+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -302,18 +302,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE754B6256EBAF70089F691 /* ListaUsers+CoreDataProperties.swift in Sources */,
-				FAE754B8256EBAF70089F691 /* Mushroom+CoreDataProperties.swift in Sources */,
-				FAE754BA256EBAF70089F691 /* User+CoreDataProperties.swift in Sources */,
 				FA447C9D256582CB00BE2B00 /* ViewController.swift in Sources */,
 				FAB91890256D2E3300974E85 /* mushroom.xcdatamodeld in Sources */,
+				FAE754C6256EC2C80089F691 /* User+CoreDataProperties.swift in Sources */,
+				FAE754C4256EC2C80089F691 /* ListaUsers+CoreDataProperties.swift in Sources */,
 				FAB91898256D35DC00974E85 /* NewSetaViewController.swift in Sources */,
+				FAE754C2256EC2C70089F691 /* Mushroom+CoreDataProperties.swift in Sources */,
+				FAE754C1256EC2C70089F691 /* Mushroom+CoreDataClass.swift in Sources */,
 				FA447C9B256582CB00BE2B00 /* AppDelegate.swift in Sources */,
+				FAE754C3256EC2C80089F691 /* ListaUsers+CoreDataClass.swift in Sources */,
+				FAE754C5256EC2C80089F691 /* User+CoreDataClass.swift in Sources */,
 				FAB91896256D359A00974E85 /* RegistroViewController.swift in Sources */,
 				FAB91892256D355400974E85 /* MenuViewController.swift in Sources */,
-				FAE754B9256EBAF70089F691 /* User+CoreDataClass.swift in Sources */,
-				FAE754B7256EBAF70089F691 /* Mushroom+CoreDataClass.swift in Sources */,
-				FAE754B5256EBAF70089F691 /* ListaUsers+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
