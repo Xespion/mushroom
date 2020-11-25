@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005363B4256ECCB0002E18FA /* AyudaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005363B3256ECCB0002E18FA /* AyudaViewController.swift */; };
 		FA447C9B256582CB00BE2B00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA447C9A256582CB00BE2B00 /* AppDelegate.swift */; };
 		FA447C9D256582CB00BE2B00 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA447C9C256582CB00BE2B00 /* ViewController.swift */; };
 		FA447CA0256582CB00BE2B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA447C9E256582CB00BE2B00 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005363B3256ECCB0002E18FA /* AyudaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AyudaViewController.swift; sourceTree = "<group>"; };
 		FA447C97256582CB00BE2B00 /* mushroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mushroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA447C9A256582CB00BE2B00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA447C9C256582CB00BE2B00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				FAB91891256D355400974E85 /* MenuViewController.swift */,
 				FAB91895256D359A00974E85 /* RegistroViewController.swift */,
 				FAB91897256D35DC00974E85 /* NewSetaViewController.swift */,
+				005363B3256ECCB0002E18FA /* AyudaViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				FAE754C4256EC2C80089F691 /* ListaUsers+CoreDataProperties.swift in Sources */,
 				FAB91898256D35DC00974E85 /* NewSetaViewController.swift in Sources */,
 				FAE754C2256EC2C70089F691 /* Mushroom+CoreDataProperties.swift in Sources */,
+				005363B4256ECCB0002E18FA /* AyudaViewController.swift in Sources */,
 				FAE754C1256EC2C70089F691 /* Mushroom+CoreDataClass.swift in Sources */,
 				FA447C9B256582CB00BE2B00 /* AppDelegate.swift in Sources */,
 				FAE754C3256EC2C80089F691 /* ListaUsers+CoreDataClass.swift in Sources */,
