@@ -9,7 +9,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var pw: UITextField!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var items:[User]?
-    var user: User!
+    
+    var nUser = " "
+    var userLogged: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +50,14 @@ class ViewController: UIViewController {
             if username.text == usuario.username && pw.text == usuario.password
             {
                 flag = true
-                user = usuario
+                userLogged = usuario
+                nUser = username.text!
             }
         }
         
         if flag == false{
             print(flag)
-            let alert = UIAlertController(title: "Error", message: "Mala", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error", message: "Usuario o contraseña incorrecta", preferredStyle: .alert)
             let defaultAc = UIAlertAction(title: "ok", style: .cancel, handler: nil)
             alert.addAction(defaultAc)
             self.present(alert, animated: true, completion: nil)
@@ -69,8 +72,10 @@ class ViewController: UIViewController {
     {
         if segue.destination is MenuViewController
         {
-            let usuarioIn = segue.destination as? MenuViewController
-            usuarioIn?.usuario = user
+            //let usuarioIn = segue.destination as! MenuViewController
+            //usuarioIn.usuario = userLogged
+            let uLog = segue.destination as? MenuViewController
+            uLog!.nombre.text = nUser
         }
     }
     
