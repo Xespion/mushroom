@@ -9,22 +9,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var pw: UITextField!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var items:[User]?
-    
-    var nUser = " "
     var userLogged: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Añadir usuarios a la base de datos:
-        /*
+        
          let newUser = User(context: self.context)
-         newUser.username = "admin1"
+         newUser.username = "admin"
          newUser.image = UIImage(named: "Logo")!.pngData() as NSData?
          newUser.mail = "admin@admin.com"
-         newUser.password = "admin1"
+         newUser.password = "admin"
          try! self.context.save()
-         */
+ 
         
         fetch_users()
     }
@@ -51,7 +49,6 @@ class ViewController: UIViewController {
             {
                 flag = true
                 userLogged = usuario
-                nUser = username.text!
             }
         }
         
@@ -72,10 +69,8 @@ class ViewController: UIViewController {
     {
         if segue.destination is MenuViewController
         {
-            //let usuarioIn = segue.destination as! MenuViewController
-            //usuarioIn.usuario = userLogged
             let uLog = segue.destination as? MenuViewController
-            uLog!.nombre.text = nUser
+            uLog?.usuario = userLogged
         }
     }
     
