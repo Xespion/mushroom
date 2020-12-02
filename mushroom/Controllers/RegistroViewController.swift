@@ -4,12 +4,15 @@ import CoreData
 class RegistroViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: atributos
-    @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nombreTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var contrasenaTxt: UITextField!
     @IBOutlet weak var repeatContrasenaTxt: UITextField!
     
+    @IBOutlet weak var imgView: UIImageView!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +39,7 @@ class RegistroViewController: UIViewController, UITextFieldDelegate, UIImagePick
         picker.allowsEditing = true
         picker.sourceType = .photoLibrary
         
-        present(picker, animated: true, completion: nil)
+        present(picker, animated: true)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -51,7 +54,7 @@ class RegistroViewController: UIViewController, UITextFieldDelegate, UIImagePick
             imgView.image = img
         }
         
-        dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true)
     }
     
     
@@ -65,16 +68,29 @@ class RegistroViewController: UIViewController, UITextFieldDelegate, UIImagePick
             alertControl.addAction(ok)
             self.present(alertControl, animated: true, completion: nil)
             
-        }else {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
-            let usuario = NSManagedObject(entity: entity, insertInto: managedContext)
+        }else if contrasenaTxt.text == ""{
+            let alertControl = UIAlertController(title: "Contraseñas vacía", message: "Las contraseñas no pueden estar vacías", preferredStyle: .alert)
             
-            usuario.setValue(nombreTxt.text, forKey: "username")
-            usuario.setValue(emailTxt.text, forKey: "mail")
-            usuario.setValue(contrasenaTxt.text, forKey: "password")
-            usuario.setValue(imgView.image, forKey: "image")
+            let ok = UIAlertAction(title: "Okey", style: .default)
+            
+            alertControl.addAction(ok)
+            self.present(alertControl, animated: true, completion: nil)
+            
+        }else {
+            
+            let newUser = User(context: self.context)
+            newUser.username = nombreTxt.text
+            newUser.mail = emailTxt.text
+            newUser.password = contrasenaTxt.text
+            
+            /*if let imageData = imgView.image?.pngData() {
+                newUser.image = imageData as NSData
+            }*/
+            
+            newUser.image = imgView.image?.pngData() as NSData?
+
+            try! self.context.save()
+            
             
             dismiss(animated: true, completion: nil)
         }
