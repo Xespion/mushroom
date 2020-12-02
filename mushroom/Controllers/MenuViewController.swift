@@ -19,6 +19,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typeSeta: UIPickerView!
     var setas:[Mushroom]?
+    var setasFiltered:[Mushroom]?
     var pickerData: [String] = [String]()
     var searching = false
     
@@ -40,7 +41,7 @@ class MenuViewController: UIViewController {
         self.setas = usuario.setas?.allObjects as? [Mushroom]
         if searching
         {
-            let pred = NSPredicate(format: <#T##String#>, <#T##args: CVarArg...##CVarArg#>)
+            
         }
         DispatchQueue.main.async {
             self.tableView.reloadData()
