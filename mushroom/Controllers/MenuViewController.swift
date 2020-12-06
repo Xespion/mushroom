@@ -25,26 +25,12 @@ class MenuViewController: UIViewController {
     var pickerData: [String] = [String]()
     var searching = false
     
-    override func viewDidAppear(_ animated: Bool)
-    {
-        boton.isHidden = true
-        if ((self.setas?.count == 0) && (searchBar.text?.isEmpty)!)
-        {
-            boton.isHidden = false
-        }
-    }
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         pickerData = ["Venenosa", "Comestible"]
         nombre.text = usuario.username
-        
-        if (self.setas?.count == 0)
-        {
-            boton.isHidden = false
-        }
-        
+
         self.typeSeta.delegate = self
         self.typeSeta.dataSource = self
         
@@ -60,10 +46,11 @@ class MenuViewController: UIViewController {
         
         let seta1 = Mushroom(context: self.context)
         seta1.lower = "nose"
-        seta1.odor = "Caca uena"
+        seta1.odor = "popo"
         seta1.rings = 1
         seta1.upper = "Nose"
         seta1.spore = "Negro"
+        seta1.type = true
         usuario.addToSetas(seta1)
         try! self.context.save()
         fetchSetas()
@@ -98,16 +85,19 @@ class MenuViewController: UIViewController {
         {
             if i.type == flag
             {
-                if texto != nil || texto != ""
+                if texto?.isEmpty ?? false
                 {
+                }else{
                     if i.odor == texto
                     {
+                        searching = true
                         setasFiltered?.append(i)
                     }
+                    
                 }
             }
         }
-        searching = true
+        
         fetchSetas()
     }
     
