@@ -18,6 +18,7 @@ class MenuViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typeSeta: UIPickerView!
+    
     var setas:[Mushroom]?
     var setasFiltered:[Mushroom]?
     var pickerData: [String] = [String]()
@@ -41,22 +42,42 @@ class MenuViewController: UIViewController {
         self.setas = usuario.setas?.allObjects as? [Mushroom]
         if searching
         {
-            
-        }
-        DispatchQueue.main.async {
             self.tableView.reloadData()
+            searching = false
+        }else{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
+
+    @IBAction func btnSearch(_ sender: Any)
+    {
+        let texto = searchBar.text
+        let tipo = typeSeta.selectedRow(inComponent: 1)
+        var flag = false
+        
+        if tipo == 1
+        {
+            flag = true
+        }
+        
+        for i in setas!
+        {
+            if i.type == flag
+            {
+                if texto != nil || texto != ""
+                {
+                    if i.odor == texto
+                    {
+                        setasFiltered?.append(i)
+                    }
+                }
+            }
+        }
+        searching = true
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource
@@ -66,12 +87,25 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searching
+        {
+            return setasFiltered?.count ?? 0
+        }
         return setas?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let seta = self.setas![indexPath.row]
+        let seta: Mushroom
+        if searching
+        {
+            seta = self.setasFiltered![indexPath.row]
+        }
+        else
+        {
+            seta = self.setas![indexPath.row]
+        }
+        
         cell.textLabel?.text = seta.odor
         if seta.type
         {
@@ -84,6 +118,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
+        if searching{
+            return nil
+        }
         let action = UIContextualAction(style: .destructive, title: "Borrar seta")
         {
             (action, view, completionHandler) in

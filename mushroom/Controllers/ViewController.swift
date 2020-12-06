@@ -11,20 +11,28 @@ class ViewController: UIViewController {
     var items:[User]?
     var userLogged: User!
     
+    override func viewDidAppear(_ animated: Bool) {
+        fetch_users()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Añadir usuarios a la base de datos:
         
-         let newUser = User(context: self.context)
+         /*let newUser = User(context: self.context)
          newUser.username = "admin"
          newUser.image = UIImage(named: "Logo")!.pngData() as NSData?
          newUser.mail = "admin@admin.com"
          newUser.password = "admin"
-         try! self.context.save()
+         try! self.context.save()*/
  
         
         fetch_users()
+        for i in items!
+        {
+            print(i.username! + " " + i.password!)
+        }
     }
     
     func fetch_users()
@@ -40,11 +48,6 @@ class ViewController: UIViewController {
         var flag = false
         for  usuario in items!
         {
-            if username.text != usuario.username || pw.text != usuario.password
-            {
-                flag = false
-            }
-            
             if username.text == usuario.username && pw.text == usuario.password
             {
                 flag = true
