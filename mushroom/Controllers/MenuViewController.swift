@@ -18,11 +18,21 @@ class MenuViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typeSeta: UIPickerView!
+    @IBOutlet weak var boton: UIButton!
     
     var setas:[Mushroom]?
     var setasFiltered:[Mushroom]?
     var pickerData: [String] = [String]()
     var searching = false
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        boton.isHidden = true
+        if ((self.setas?.count == 0) && (searchBar.text?.isEmpty)!)
+        {
+            boton.isHidden = false
+        }
+    }
     
     override func viewDidLoad()
     {
@@ -30,11 +40,33 @@ class MenuViewController: UIViewController {
         pickerData = ["Venenosa", "Comestible"]
         nombre.text = usuario.username
         
+        if (self.setas?.count == 0)
+        {
+            boton.isHidden = false
+        }
+        
         self.typeSeta.delegate = self
         self.typeSeta.dataSource = self
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        /*let newUser = User(context: self.context)
+         newUser.username = "admin"
+         newUser.image = UIImage(named: "Logo")!.pngData() as NSData?
+         newUser.mail = "admin@admin.com"
+         newUser.password = "admin"
+         try! self.context.save()*/
+        
+        let seta1 = Mushroom(context: self.context)
+        seta1.lower = "nose"
+        seta1.odor = "Caca uena"
+        seta1.rings = 1
+        seta1.upper = "Nose"
+        seta1.spore = "Negro"
+        usuario.addToSetas(seta1)
+        try! self.context.save()
+        fetchSetas()
     }
     
     func fetchSetas()
@@ -54,7 +86,7 @@ class MenuViewController: UIViewController {
     @IBAction func btnSearch(_ sender: Any)
     {
         let texto = searchBar.text
-        let tipo = typeSeta.selectedRow(inComponent: 1)
+        let tipo = typeSeta.selectedRow(inComponent: 0)
         var flag = false
         
         if tipo == 1
@@ -76,8 +108,17 @@ class MenuViewController: UIViewController {
             }
         }
         searching = true
+        fetchSetas()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is ConfViewController
+        {
+            let uLog = segue.destination as? ConfViewController
+            uLog?.usuario = usuario
+        }
+    }
     
 }
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource
