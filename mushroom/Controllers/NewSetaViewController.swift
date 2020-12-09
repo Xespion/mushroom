@@ -27,6 +27,7 @@ class NewSetaViewController: UIViewController {
     }
     */
     @IBAction func cancelarBtn(_ sender: Any) { dismiss(animated: true, completion: nil) }
-    @IBAction func AñadirBtn(_ sender: Any) { dismiss(animated: true, completion: nil) }
+    @IBAction func AñadirBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil) }
     
 }

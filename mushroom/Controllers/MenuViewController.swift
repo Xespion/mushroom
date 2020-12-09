@@ -37,13 +37,8 @@ class MenuViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        /*let newUser = User(context: self.context)
-         newUser.username = "admin"
-         newUser.image = UIImage(named: "Logo")!.pngData() as NSData?
-         newUser.mail = "admin@admin.com"
-         newUser.password = "admin"
-         try! self.context.save()*/
-        
+        //Añadir setas
+        /*
         let seta1 = Mushroom(context: self.context)
         seta1.name = "A"
         seta1.lower = "nose"
@@ -64,7 +59,7 @@ class MenuViewController: UIViewController {
         seta2.type = false
         usuario.addToSetas(seta2)
         
-        try! self.context.save()
+        try! self.context.save()*/
         fetchSetas()
     }
     
@@ -166,7 +161,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
         
         if seta.type
         {
-            cell.imagen.image = UIImage(named: "noimage")
+            cell.imagen.image = UIImage(named: "tick")
         }else{
             cell.imagen.image = UIImage(named: "Logo")
         }
