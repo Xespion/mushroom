@@ -227,7 +227,7 @@ extension MenuViewController: UISearchBarDelegate
                 searching = true
             }
         }
-        
+        //
         fetchSetas()
     }
 }
