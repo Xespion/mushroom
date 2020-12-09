@@ -44,8 +44,8 @@ class MenuViewController: UIViewController {
          newUser.password = "admin"
          try! self.context.save()*/
         
-        /*let seta1 = Mushroom(context: self.context)
-        seta1.name = "a"
+        let seta1 = Mushroom(context: self.context)
+        seta1.name = "A"
         seta1.lower = "nose"
         seta1.odor = "popo"
         seta1.rings = 1
@@ -53,8 +53,19 @@ class MenuViewController: UIViewController {
         seta1.spore = "Negro"
         seta1.type = true
         usuario.addToSetas(seta1)
+        
+        let seta2 = Mushroom(context: self.context)
+        seta2.name = "B"
+        seta2.lower = "nose"
+        seta2.odor = "popo"
+        seta2.rings = 1
+        seta2.upper = "Nose"
+        seta2.spore = "Negro"
+        seta2.type = false
+        usuario.addToSetas(seta2)
+        
         try! self.context.save()
-        fetchSetas()*/
+        fetchSetas()
     }
     
     func fetchSetas()
@@ -84,12 +95,21 @@ class MenuViewController: UIViewController {
         
         if setas == nil
         {
-            return
+            for i in setas!
+            {
+                if i.type == flag
+                {
+                    searching = true
+                    setasFiltered?.append(i)
+                }
+            }
         }
+        fetchSetas()
         
-        for i in setas!
+        /*for i in setas!
         {
-            if i.type == flag
+            
+            /*if i.type == flag
             {
                 if texto?.isEmpty ?? false
                 {
@@ -101,10 +121,9 @@ class MenuViewController: UIViewController {
                     }
                     
                 }
-            }
-        }
+            }*/
+        }*/
         
-        fetchSetas()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -132,7 +151,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SetaTableViewCell
         let seta: Mushroom
         if searching
         {
@@ -143,12 +162,13 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
             seta = self.setas![indexPath.row]
         }
         
-        cell.textLabel?.text = seta.odor
+        cell.nombre.text = seta.name
+        
         if seta.type
         {
-            cell.imageView?.image = UIImage(named: "noimage")
+            cell.imagen.image = UIImage(named: "noimage")
         }else{
-            cell.imageView?.image = UIImage(named: "Logo")
+            cell.imagen.image = UIImage(named: "Logo")
         }
         return cell
     }

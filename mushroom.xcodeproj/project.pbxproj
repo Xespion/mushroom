@@ -26,6 +26,7 @@
 		FAE5F7472581269A008E2A61 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5F7412581269A008E2A61 /* User+CoreDataProperties.swift */; };
 		FAE5F7482581269A008E2A61 /* Mushroom+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5F7422581269A008E2A61 /* Mushroom+CoreDataClass.swift */; };
 		FAE5F7492581269A008E2A61 /* Mushroom+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5F7432581269A008E2A61 /* Mushroom+CoreDataProperties.swift */; };
+		FAE5F74B25812AF3008E2A61 /* SetaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5F74A25812AF3008E2A61 /* SetaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		FAE5F7412581269A008E2A61 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FAE5F7422581269A008E2A61 /* Mushroom+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mushroom+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FAE5F7432581269A008E2A61 /* Mushroom+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mushroom+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAE5F74A25812AF3008E2A61 /* SetaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				FAB91897256D35DC00974E85 /* NewSetaViewController.swift */,
 				005363B3256ECCB0002E18FA /* AyudaViewController.swift */,
 				FA2B26662580E295007A9146 /* ConfiViewController.swift */,
+				FAE5F74A25812AF3008E2A61 /* SetaTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				FAE5F7492581269A008E2A61 /* Mushroom+CoreDataProperties.swift in Sources */,
 				FAE5F7472581269A008E2A61 /* User+CoreDataProperties.swift in Sources */,
 				FAE5F7452581269A008E2A61 /* ListaUsers+CoreDataProperties.swift in Sources */,
+				FAE5F74B25812AF3008E2A61 /* SetaTableViewCell.swift in Sources */,
 				FAB91898256D35DC00974E85 /* NewSetaViewController.swift in Sources */,
 				FA2B26672580E295007A9146 /* ConfiViewController.swift in Sources */,
 				005363B4256ECCB0002E18FA /* AyudaViewController.swift in Sources */,
