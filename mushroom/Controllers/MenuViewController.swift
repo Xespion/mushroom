@@ -44,7 +44,7 @@ class MenuViewController: UIViewController {
          newUser.password = "admin"
          try! self.context.save()*/
         
-        let seta1 = Mushroom(context: self.context)
+        /*let seta1 = Mushroom(context: self.context)
         seta1.lower = "nose"
         seta1.odor = "popo"
         seta1.rings = 1
@@ -53,7 +53,7 @@ class MenuViewController: UIViewController {
         seta1.type = true
         usuario.addToSetas(seta1)
         try! self.context.save()
-        fetchSetas()
+        fetchSetas()*/
     }
     
     func fetchSetas()
@@ -81,6 +81,11 @@ class MenuViewController: UIViewController {
             flag = true
         }
         
+        if setas == nil
+        {
+            return
+        }
+        
         for i in setas!
         {
             if i.type == flag
@@ -103,10 +108,10 @@ class MenuViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.destination is ConfViewController
+        if segue.destination is ConfiViewController
         {
-            let uLog = segue.destination as? ConfViewController
-            uLog?.usuario = usuario
+            let uLog = segue.destination as? ConfiViewController
+            //uLog?.usuario = usuario
         }
     }
     

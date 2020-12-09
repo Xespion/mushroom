@@ -1,23 +1,22 @@
 //
-//  AyudaViewController.swift
+//  ConfiViewController.swift
 //  mushroom
 //
-//  Created by Alonso Bravo Moyano on 25/11/20.
+//  Created by Alex on 09/12/2020.
 //  Copyright © 2020 Alex. All rights reserved.
 //
 
 import UIKit
 
-class AyudaViewController: UIViewController {
-    
+class ConfiViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func cerrar(_ sender: UIButton) { dismiss(animated: true, completion: nil) }
-    
+
     /*
     // MARK: - Navigation
 
@@ -27,5 +26,10 @@ class AyudaViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func backAction(_ sender: Any) { dismiss(animated: true, completion: nil) }
+    
+    @IBAction func SaveAction(_ sender: Any) {
+        //TODO
+        dismiss(animated: true, completion: nil)
+    }
 }
