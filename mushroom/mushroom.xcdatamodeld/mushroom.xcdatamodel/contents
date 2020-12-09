@@ -5,6 +5,7 @@
     </entity>
     <entity name="Mushroom" representedClassName="Mushroom" syncable="YES">
         <attribute name="lower" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="odor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rings" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="spore" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,8 +22,8 @@
         <relationship name="userInList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ListaUsers" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Mushroom" positionX="-54" positionY="18" width="128" height="150"/>
-        <element name="User" positionX="-527.03125" positionY="31.99609375" width="128" height="135"/>
         <element name="ListaUsers" positionX="-381.99609375" positionY="200.03515625" width="128" height="60"/>
+        <element name="Mushroom" positionX="-54" positionY="18" width="128" height="165"/>
+        <element name="User" positionX="-527.03125" positionY="31.99609375" width="128" height="135"/>
     </elements>
 </model>

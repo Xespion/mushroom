@@ -2,7 +2,7 @@
 //  Mushroom+CoreDataProperties.swift
 //  mushroom
 //
-//  Created by Alex on 25/11/2020.
+//  Created by Alex on 09/12/2020.
 //  Copyright © 2020 Alex. All rights reserved.
 //
 //
@@ -23,6 +23,7 @@ extension Mushroom {
     @NSManaged public var spore: String?
     @NSManaged public var type: Bool
     @NSManaged public var upper: String?
+    @NSManaged public var name: String?
     @NSManaged public var fBuser: User?
 
 }

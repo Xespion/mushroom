@@ -45,6 +45,7 @@ class MenuViewController: UIViewController {
          try! self.context.save()*/
         
         /*let seta1 = Mushroom(context: self.context)
+        seta1.name = "a"
         seta1.lower = "nose"
         seta1.odor = "popo"
         seta1.rings = 1
@@ -93,7 +94,7 @@ class MenuViewController: UIViewController {
                 if texto?.isEmpty ?? false
                 {
                 }else{
-                    if i.odor == texto
+                    if i.name?.range(of: texto!) != nil
                     {
                         searching = true
                         setasFiltered?.append(i)

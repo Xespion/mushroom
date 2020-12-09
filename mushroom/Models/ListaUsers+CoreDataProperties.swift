@@ -2,7 +2,7 @@
 //  ListaUsers+CoreDataProperties.swift
 //  mushroom
 //
-//  Created by Alex on 25/11/2020.
+//  Created by Alex on 09/12/2020.
 //  Copyright © 2020 Alex. All rights reserved.
 //
 //
