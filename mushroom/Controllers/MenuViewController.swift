@@ -22,12 +22,25 @@ class MenuViewController: UIViewController {
     
     var setas:[Mushroom]?
     var setasFiltered:[Mushroom]?
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
     var pickerData: [String] = [String]()
     var searching = false
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        let seta1 = Mushroom(context: self.context)
+        seta1.name = "NADA"
+        seta1.lower = "nose"
+        seta1.odor = "popo"
+        seta1.rings = 1
+        seta1.upper = "Nose"
+        seta1.spore = "Negro"
+        seta1.type = true
+        setasFiltered = [seta1]
         pickerData = ["Venenosa", "Comestible"]
         nombre.text = usuario.username
 
@@ -37,10 +50,12 @@ class MenuViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        self.searchBar.delegate = self
+        
         //Añadir setas
         /*
         let seta1 = Mushroom(context: self.context)
-        seta1.name = "A"
+        seta1.name = "Abc"
         seta1.lower = "nose"
         seta1.odor = "popo"
         seta1.rings = 1
@@ -50,7 +65,7 @@ class MenuViewController: UIViewController {
         usuario.addToSetas(seta1)
         
         let seta2 = Mushroom(context: self.context)
-        seta2.name = "B"
+        seta2.name = "Bcde"
         seta2.lower = "nose"
         seta2.odor = "popo"
         seta2.rings = 1
@@ -198,5 +213,21 @@ extension MenuViewController: UIPickerViewDelegate, UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         return pickerData[row]
+    }
+}
+extension MenuViewController: UISearchBarDelegate
+{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("The search text is: ’\(searchBar.text!)’")
+        for i in setas!{
+            if ((i.name!.contains(searchBar.text!))) {
+                print(i.name!)
+                setasFiltered?.append(i)
+                print(setasFiltered?.count)
+                searching = true
+            }
+        }
+        
+        fetchSetas()
     }
 }
