@@ -141,7 +141,7 @@ class MenuViewController: UIViewController {
         if segue.destination is ConfiViewController
         {
             let uLog = segue.destination as? ConfiViewController
-            //uLog?.usuario = usuario
+            uLog?.usuario = usuario
         }
     }
     

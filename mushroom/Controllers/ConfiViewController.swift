@@ -20,9 +20,11 @@ class ConfiViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(usuario.username!)
         // Do any additional setup after loading the view.
+        nombreTxt.text = " "
         nombreTxt.text = usuario.username
+        emailTxt.text = " "
         emailTxt.text = usuario.mail
     }
     

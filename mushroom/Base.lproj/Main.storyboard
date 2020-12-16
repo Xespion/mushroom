@@ -878,6 +878,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lx9-6K-CfK"/>
                     </view>
+                    <connections>
+                        <outlet property="confPasswordTxt" destination="Dp9-Vo-o4h" id="NIx-zZ-Se7"/>
+                        <outlet property="emailTxt" destination="t8A-fe-Vo3" id="6ON-09-vjD"/>
+                        <outlet property="guardarBtn" destination="III-7k-jrg" id="POf-Fm-vzO"/>
+                        <outlet property="nombreTxt" destination="mp7-t5-41k" id="dGQ-90-Yhh"/>
+                        <outlet property="passwordTxt" destination="kBb-HB-18k" id="7wE-T0-k4J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMm-O0-ZWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
