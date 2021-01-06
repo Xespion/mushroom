@@ -32,15 +32,15 @@ class MenuViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        let seta1 = Mushroom(context: self.context)
-        seta1.name = "NADA"
-        seta1.lower = "nose"
-        seta1.odor = "popo"
-        seta1.rings = 1
-        seta1.upper = "Nose"
-        seta1.spore = "Negro"
-        seta1.type = true
-        setasFiltered = [seta1]
+        let seta = Mushroom(context: self.context)
+        seta.name = "NADA"
+        seta.lower = "nose"
+        seta.odor = "popo"
+        seta.rings = 1
+        seta.upper = "Nose"
+        seta.spore = "Negro"
+        seta.type = true
+        setasFiltered = [seta]
         pickerData = ["Venenosa", "Comestible"]
         nombre.text = usuario.username
 
@@ -72,9 +72,9 @@ class MenuViewController: UIViewController {
         seta2.upper = "Nose"
         seta2.spore = "Negro"
         seta2.type = false
-        usuario.addToSetas(seta2)
+        usuario.addToSetas(seta2)*/
         
-        try! self.context.save()*/
+        try! self.context.save()
         fetchSetas()
     }
     

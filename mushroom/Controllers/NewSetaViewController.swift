@@ -7,38 +7,71 @@
 //
 
 import UIKit
+import CoreData
 
 class NewSetaViewController: UIViewController {
 
-    @IBOutlet weak var imagenEsporada: UIImageView!
-    @IBOutlet weak var viewOlor: UIView!
+    @IBOutlet weak var nombreSeta: UITextField!
+    @IBOutlet weak var imagenEsporada: UIButton!
     @IBOutlet weak var viewNegra: UIView!
-    @IBOutlet weak var viewForma: UIView!
     @IBOutlet weak var viewColor: UIView!
+    @IBOutlet weak var Clasificacion: UISegmentedControl!
+    @IBOutlet weak var Anillos: UISegmentedControl!
     @IBAction func seleccionarOlor(_ sender: Any) {
-        viewNegra.isHidden = false;
-        viewOlor.isHidden = false;
-    }
-    @IBAction func esporadaAmarilla(_ sender: UITapGestureRecognizer) {
-        imagenEsporada.image = UIImage(named:"esporada-amarillo");
-        viewNegra.isHidden = true;
-        viewColor.isHidden = true;
-    }
-    @IBAction func seleccionarColor(_ sender: UITapGestureRecognizer) {
         viewNegra.isHidden = false;
         viewColor.isHidden = false;
     }
-    @IBAction func seleccionarFormaSuperior(_ sender: Any) {
+//MARK: Colores Esporada
+    @IBAction func seleccionarColor(_ sender: UIButton) {
         viewNegra.isHidden = false;
-        viewForma.isHidden = false;
-        
+        viewColor.isHidden = false;
     }
+    @IBAction func esporadaBuff(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-buff");
+        ocultarEsporada()
+    }
+    @IBAction func esporadaBlanca(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-blanco");
+        ocultarEsporada()
+    }
+    @IBAction func esporadaAmarilla(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-amarillo");
+        ocultarEsporada()
+    }
+    @IBAction func esporadaVerde(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-verde");
+        ocultarEsporada()
+    }
+    @IBAction func esporadaChocolate(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-chocolate");
+        ocultarEsporada()
+    }
+    @IBAction func esporadaMorada(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-morado");
+        ocultarEsporada()
+    }
+    @IBAction func esporadaNaranja(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-naranja");
+        ocultarEsporada()
+    }
+    @IBAction func esporadaNegra(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-negro");
+        ocultarEsporada()
+    }
+    @IBAction func esporadaMarron(_ sender: UIButton) {
+        imagenEsporada.imageView?.image = UIImage(named: "esporada-marron");
+        ocultarEsporada()
+    }
+    func ocultarEsporada(){
+        viewNegra.isHidden = true;
+        viewColor.isHidden = true;
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewNegra.isHidden = true;
-        viewOlor.isHidden = true;
         viewColor.isHidden = true;
-        viewForma.isHidden = true;
         // Do any additional setup after loading the view.
     }
     
