@@ -15,63 +15,129 @@ class NewSetaViewController: UIViewController {
     @IBOutlet weak var imagenEsporada: UIButton!
     @IBOutlet weak var viewNegra: UIView!
     @IBOutlet weak var viewColor: UIView!
+    @IBOutlet weak var viewForma: UIView!
+    @IBOutlet weak var viewOlor: UIView!
+    @IBOutlet weak var talloSuperior: UILabel!
+    @IBOutlet weak var talloInferior: UILabel!
+    @IBOutlet weak var olorSeta: UILabel!
     @IBOutlet weak var Clasificacion: UISegmentedControl!
     @IBOutlet weak var Anillos: UISegmentedControl!
+    
+//MARK: Olor
     @IBAction func seleccionarOlor(_ sender: Any) {
+        viewOlor.isHidden = false;
         viewNegra.isHidden = false;
-        viewColor.isHidden = false;
     }
-//MARK: Colores Esporada
-    @IBAction func seleccionarColor(_ sender: UIButton) {
+    @IBAction func olorPescado(_ sender: UIButton) {
+        cambiarOlor(olor: "Pescado")
+    }
+    @IBAction func olorPicante(_ sender: UIButton) {
+        cambiarOlor(olor: "Picante")
+    }
+    @IBAction func olorRancio(_ sender: UIButton) {
+        cambiarOlor(olor: "Rancio")
+    }
+    @IBAction func olorAnis(_ sender: UIButton) {
+        cambiarOlor(olor: "Anis")
+    }
+    @IBAction func olorBasura(_ sender: UIButton) {
+        cambiarOlor(olor: "Basura")
+    }
+    @IBAction func olorAlmendra(_ sender: UIButton) {
+        cambiarOlor(olor: "Almendra")
+    }
+    @IBAction func olorHollin(_ sender: UIButton) {
+        cambiarOlor(olor: "Hollin")
+    }
+    @IBAction func olorDesconocido(_ sender: UIButton) {
+        cambiarOlor(olor: "Desconocido")
+    }
+    @IBAction func olorNada(_ sender: UIButton) {
+        cambiarOlor(olor: "Nada")
+    }
+    func cambiarOlor(olor:String){
+        olorSeta.text = olor
+        viewOlor.isHidden = true;
+        viewNegra.isHidden = true;
+    }
+    
+//MARK: Tallo superior e inferior
+    var tallo = ""
+    @IBAction func seleccionarTalloSuperior(_ sender: UIButton) {
+        tallo = "superior"
+        viewForma.isHidden = false;
         viewNegra.isHidden = false;
+    }
+    @IBAction func seleccionarTalloInferior(_ sender: UIButton) {
+        tallo = "inferior"
+        viewForma.isHidden = false;
+        viewNegra.isHidden = false;
+    }
+    @IBAction func talloForma1(_ sender: UIButton) {
+        cambiarFormaTallo(forma: "Forma 1")
+    }
+    @IBAction func talloForma2(_ sender: UIButton) {
+        cambiarFormaTallo(forma: "Forma 2")
+    }
+    @IBAction func talloForma3(_ sender: UIButton) {
+        cambiarFormaTallo(forma: "Forma 3")
+    }
+    @IBAction func talloForma4(_ sender: UIButton) {
+        cambiarFormaTallo(forma: "Forma 4")
+    }
+    func cambiarFormaTallo(forma:String){
+        if(tallo == "superior"){ talloSuperior.text = forma }
+        if(tallo == "inferior"){ talloInferior.text = forma }
+        viewForma.isHidden = true;
+        viewNegra.isHidden = true;
+    }
+    
+//MARK: Colores Esporada
+    
+    @IBAction func seleccionarColor(_ sender: UIButton) {
         viewColor.isHidden = false;
+        viewNegra.isHidden = false;
     }
     @IBAction func esporadaBuff(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-buff");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-buff")
     }
     @IBAction func esporadaBlanca(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-blanco");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-blanco")
     }
     @IBAction func esporadaAmarilla(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-amarillo");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-amarillo")
     }
     @IBAction func esporadaVerde(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-verde");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-verde")
     }
     @IBAction func esporadaChocolate(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-chocolate");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-chocolate")
     }
     @IBAction func esporadaMorada(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-morado");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-morado")
     }
     @IBAction func esporadaNaranja(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-naranja");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-naranja")
     }
     @IBAction func esporadaNegra(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-negro");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-negro")
     }
     @IBAction func esporadaMarron(_ sender: UIButton) {
-        imagenEsporada.imageView?.image = UIImage(named: "esporada-marron");
-        ocultarEsporada()
+        cambiarEsporada(esporada: "esporada-marron")
     }
-    func ocultarEsporada(){
-        viewNegra.isHidden = true;
+    func cambiarEsporada(esporada:String){
+        imagenEsporada.imageView?.image = UIImage(named: esporada);
         viewColor.isHidden = true;
+        viewNegra.isHidden = true;
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewNegra.isHidden = true;
+        viewOlor.isHidden = true;
         viewColor.isHidden = true;
+        viewForma.isHidden = true;
+        viewNegra.isHidden = true;
         // Do any additional setup after loading the view.
     }
     
