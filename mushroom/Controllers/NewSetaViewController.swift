@@ -150,6 +150,13 @@ class NewSetaViewController: UIViewController {
         viewForma.isHidden = true;
         viewNegra.isHidden = true;
         // Do any additional setup after loading the view.
+        
+        #if LPS1
+        #endif
+        
+        #if LPS2
+        Clasificacion.isHidden = true
+        #endif
     }
     
 
@@ -194,12 +201,17 @@ class NewSetaViewController: UIViewController {
                 case "2": seta.rings = 2;
                 default: seta.rings = 0;
             }
+            #if LPS1
             switch clasificacion{
                 case "Comestible": seta.type = true;
                 case "Venenosa": seta.type = false;
                 default: seta.type = false;
             }
-             usuario.addToSetas(seta)
+            #endif
+            #if LPS2
+            //Algoritmo
+            #endif
+            usuario.addToSetas(seta)
             try! self.context.save()
         }
         dismiss(animated: true, completion: nil)

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>mushroom copy.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>mushroom.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>FA447CB5256582DE00BE2B00</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA8A843025A771D600FE991E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

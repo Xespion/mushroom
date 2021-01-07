@@ -30,18 +30,17 @@ class MenuViewController: UIViewController {
     
     var setas:[Mushroom]?
     var setasFiltered:[Mushroom]?
-    let searchController = UISearchController(searchResultsController: nil)
-    var isSearchBarEmpty: Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
     var pickerData: [String] = [String]()
-    var searching = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         viewNegra.isHidden = true;
-        self.tableView.reloadData()
+        fetchSetas()
         let seta = Mushroom(context: self.context)
         seta.name = "NADA"
         seta.lower = "nose"
@@ -50,7 +49,6 @@ class MenuViewController: UIViewController {
         seta.upper = "Nose"
         seta.spore = "Negro"
         seta.type = true
-        setasFiltered = [seta]
         pickerData = ["Venenosa", "Comestible"]
         nombre.text = usuario.username
 
@@ -62,91 +60,25 @@ class MenuViewController: UIViewController {
         
         self.searchBar.delegate = self
         
-        //Añadir setas
-        /*
-        let seta1 = Mushroom(context: self.context)
-        seta1.name = "Abc"
-        seta1.lower = "nose"
-        seta1.odor = "popo"
-        seta1.rings = 1
-        seta1.upper = "Nose"
-        seta1.spore = "Negro"
-        seta1.type = true
-        usuario.addToSetas(seta1)
         
-        let seta2 = Mushroom(context: self.context)
-        seta2.name = "Bcde"
-        seta2.lower = "nose"
-        seta2.odor = "popo"
-        seta2.rings = 1
-        seta2.upper = "Nose"
-        seta2.spore = "Negro"
-        seta2.type = false
-        usuario.addToSetas(seta2)*/
-        
-        try! self.context.save()
-        fetchSetas()
     }
     
     func fetchSetas()
     {
         self.setas = usuario.setas?.allObjects as? [Mushroom]
-        if searching
-        {
+        self.setasFiltered = self.setas
+        DispatchQueue.main.async {
             self.tableView.reloadData()
-            searching = false
-        }else{
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
         }
+        
     }
 
     @IBAction func quitarInformacion(_ sender: UIButton) {
         viewNegra.isHidden = true
     }
+    
     @IBAction func btnSearch(_ sender: Any)
     {
-        let texto = searchBar.text
-        let tipo = typeSeta.selectedRow(inComponent: 0)
-        var flag = false
-        
-        if tipo == 1
-        {
-            flag = true
-        }
-        
-        if setas == nil
-        {
-            for i in setas!
-            {
-                if i.type == flag
-                {
-                    searching = true
-                    setasFiltered?.append(i)
-                }
-            }
-        }
-        fetchSetas()
-        
-        /*for i in setas!
-        {
-            
-            /*if i.type == flag
-            {
-                if texto?.isEmpty ?? false
-                {
-                }else{
-                    if i.name?.range(of: texto!) != nil
-                    {
-                        searching = true
-                        setasFiltered?.append(i)
-                    }
-                    
-                }
-            }*/
-        }*/
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -171,14 +103,10 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching
-        {
-            return setasFiltered?.count ?? 0
-        }
-        return setas?.count ?? 0
+        return setasFiltered?.count ?? 0
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let seta = self.setas![indexPath.row]
+        let seta = self.setasFiltered![indexPath.row]
         nombreSeta.text = seta.name
         olorSeta.text = seta.odor
         formaInferior.text = seta.lower
@@ -201,14 +129,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SetaTableViewCell
         let seta: Mushroom
-        if searching
-        {
-            seta = self.setasFiltered![indexPath.row]
-        }
-        else
-        {
-            seta = self.setas![indexPath.row]
-        }
+        seta = self.setasFiltered![indexPath.row]
         
         cell.nombre.text = seta.name
         
@@ -223,13 +144,10 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
-        if searching{
-            return nil
-        }
         let action = UIContextualAction(style: .destructive, title: "Borrar seta")
         {
             (action, view, completionHandler) in
-            let setaToRemove = self.setas![indexPath.row]
+            let setaToRemove = self.setasFiltered![indexPath.row]
             self.context.delete(setaToRemove)
             try! self.context.save()
             self.fetchSetas()
@@ -255,17 +173,24 @@ extension MenuViewController: UIPickerViewDelegate, UIPickerViewDataSource
 }
 extension MenuViewController: UISearchBarDelegate
 {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("The search text is: ’\(searchBar.text!)’")
-        for i in setas!{
-            if ((i.name!.contains(searchBar.text!))) {
-                print(i.name!)
-                setasFiltered?.append(i)
-                print(setasFiltered?.count)
-                searching = true
-            }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.setasFiltered = self.setas?.filter{(seta: Mushroom) -> Bool in
+            //Aqui meto lo del picker
+            return true
         }
-        //
-        fetchSetas()
+        
+        if(searchBar.text?.count == 0)
+        {
+            tableView.reloadData()
+            return
+        }
+        
+        self.setasFiltered = self.setasFiltered?.filter{(seta: Mushroom) -> Bool in
+            if((seta.name?.lowercased().contains(searchBar.text!.lowercased()))!){
+                return true
+            }
+            return false
+        }
+        tableView.reloadData()
     }
 }
