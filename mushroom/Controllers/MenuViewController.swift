@@ -32,6 +32,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.tableView.reloadData()
         let seta = Mushroom(context: self.context)
         seta.name = "NADA"
         seta.lower = "nose"
@@ -141,6 +142,11 @@ class MenuViewController: UIViewController {
         if segue.destination is ConfiViewController
         {
             let uLog = segue.destination as? ConfiViewController
+            uLog?.usuario = usuario
+        }
+        if segue.destination is NewSetaViewController
+        {
+            let uLog = segue.destination as? NewSetaViewController
             uLog?.usuario = usuario
         }
     }

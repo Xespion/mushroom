@@ -22,6 +22,8 @@ class NewSetaViewController: UIViewController {
     @IBOutlet weak var olorSeta: UILabel!
     @IBOutlet weak var Clasificacion: UISegmentedControl!
     @IBOutlet weak var Anillos: UISegmentedControl!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var usuario: User!
     
 //MARK: Olor
     @IBAction func seleccionarOlor(_ sender: Any) {
@@ -93,36 +95,45 @@ class NewSetaViewController: UIViewController {
     }
     
 //MARK: Colores Esporada
-    
+    var colorEsporada = "brown"
     @IBAction func seleccionarColor(_ sender: UIButton) {
         viewColor.isHidden = false;
         viewNegra.isHidden = false;
     }
     @IBAction func esporadaBuff(_ sender: UIButton) {
+        colorEsporada = "buff"
         cambiarEsporada(esporada: "esporada-buff")
     }
     @IBAction func esporadaBlanca(_ sender: UIButton) {
+        colorEsporada = "white"
         cambiarEsporada(esporada: "esporada-blanco")
     }
     @IBAction func esporadaAmarilla(_ sender: UIButton) {
+        colorEsporada = "yellow"
         cambiarEsporada(esporada: "esporada-amarillo")
     }
     @IBAction func esporadaVerde(_ sender: UIButton) {
+        colorEsporada = "green"
         cambiarEsporada(esporada: "esporada-verde")
     }
     @IBAction func esporadaChocolate(_ sender: UIButton) {
+        colorEsporada = "chocolate"
         cambiarEsporada(esporada: "esporada-chocolate")
     }
     @IBAction func esporadaMorada(_ sender: UIButton) {
+        colorEsporada = "purple"
         cambiarEsporada(esporada: "esporada-morado")
     }
     @IBAction func esporadaNaranja(_ sender: UIButton) {
+        colorEsporada = "orange"
         cambiarEsporada(esporada: "esporada-naranja")
     }
     @IBAction func esporadaNegra(_ sender: UIButton) {
+        colorEsporada = "black"
         cambiarEsporada(esporada: "esporada-negro")
     }
     @IBAction func esporadaMarron(_ sender: UIButton) {
+        colorEsporada = "brown"
         cambiarEsporada(esporada: "esporada-marron")
     }
     func cambiarEsporada(esporada:String){
@@ -152,7 +163,47 @@ class NewSetaViewController: UIViewController {
     }
     */
     @IBAction func cancelarBtn(_ sender: Any) { dismiss(animated: true, completion: nil) }
+    
     @IBAction func AñadirBtn(_ sender: Any) {
-        dismiss(animated: true, completion: nil) }
+        if nombreSeta.text == ""{
+            let alertControl = UIAlertController(title: "Nombre vacio", message: "Debes indicar un nombre para la seta.", preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "Okey", style: .default)
+            
+            alertControl.addAction(ok)
+            self.present(alertControl, animated: true, completion: nil)
+        } else if(talloSuperior.text == "Nada" || talloInferior.text == "Nada"){
+            let alertControl = UIAlertController(title: "Indica la forma", message: "Debes indicar la forma del tallo superior e inferior.", preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "Okey", style: .default)
+            
+            alertControl.addAction(ok)
+            self.present(alertControl, animated: true, completion: nil)
+        }else {
+            let anillos = Anillos.titleForSegment(at: Anillos.selectedSegmentIndex)
+            let clasificacion = Clasificacion.titleForSegment(at: Clasificacion.selectedSegmentIndex)
+            let seta = Mushroom(context: self.context)
+            seta.name = nombreSeta.text
+            seta.lower = talloInferior.text
+            seta.odor = olorSeta.text
+            seta.upper = talloSuperior.text
+            seta.spore = colorEsporada
+            switch anillos{
+                case "0": seta.rings = 0;
+                case "1": seta.rings = 1;
+                case "2": seta.rings = 2;
+                default: seta.rings = 0;
+            }
+            switch clasificacion{
+                case "Comestible": seta.type = true;
+                case "Venenosa": seta.type = false;
+                default: seta.type = false;
+            }
+             usuario.addToSetas(seta)
+            try! self.context.save()
+        }
+        dismiss(animated: true, completion: nil)
+        
+    }
     
 }
