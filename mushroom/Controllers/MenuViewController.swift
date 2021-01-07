@@ -16,6 +16,14 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var nombre: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var nombreSeta: UILabel!
+    @IBOutlet weak var olorSeta: UILabel!
+    @IBOutlet weak var formaSuperior: UILabel!
+    @IBOutlet weak var formaInferior: UILabel!
+    @IBOutlet weak var imagenEsporada: UIImageView!
+    @IBOutlet weak var numeroAnillos: UILabel!
+    @IBOutlet weak var clasificacion: UILabel!
+    @IBOutlet weak var viewNegra: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typeSeta: UIPickerView!
     @IBOutlet weak var boton: UIButton!
@@ -32,6 +40,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        viewNegra.isHidden = true;
         self.tableView.reloadData()
         let seta = Mushroom(context: self.context)
         seta.name = "NADA"
@@ -93,6 +102,9 @@ class MenuViewController: UIViewController {
         }
     }
 
+    @IBAction func quitarInformacion(_ sender: UIButton) {
+        viewNegra.isHidden = true
+    }
     @IBAction func btnSearch(_ sender: Any)
     {
         let texto = searchBar.text
@@ -165,7 +177,27 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
         }
         return setas?.count ?? 0
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let seta = self.setas![indexPath.row]
+        nombreSeta.text = seta.name
+        olorSeta.text = seta.odor
+        formaInferior.text = seta.lower
+        formaSuperior.text = seta.upper
+        numeroAnillos.text = String.init(seta.rings)
+        clasificacion.text = seta.type == true ? "Comestible" : "Venenosa";
+        switch seta.spore{
+            case "black": imagenEsporada.image = UIImage(named: "esporada-negro");
+            case "green": imagenEsporada.image = UIImage(named: "esporada-verde");
+            case "white": imagenEsporada.image = UIImage(named: "esporada-blanco");
+            case "orange": imagenEsporada.image = UIImage(named: "esporada-naranja");
+            case "yellow": imagenEsporada.image = UIImage(named: "esporada-amarillo");
+            case "buff": imagenEsporada.image = UIImage(named: "esporada-buff");
+            case "chocolate": imagenEsporada.image = UIImage(named: "esporada-chocolate");
+            case "purple": imagenEsporada.image = UIImage(named: "esporada-morado");
+            default: imagenEsporada.image = UIImage(named: "esporada-marron");
+        }
+        viewNegra.isHidden = false;
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SetaTableViewCell
         let seta: Mushroom
