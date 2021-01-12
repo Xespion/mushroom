@@ -12,6 +12,7 @@ import CoreData
 class ConfiViewController: UIViewController {
     
     var usuario: User!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @IBOutlet weak var nombreTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
@@ -56,6 +57,7 @@ class ConfiViewController: UIViewController {
             if passwordTxt.text != ""{
                 usuario.password = passwordTxt.text
             }
+            try! self.context.save()
         }
     }
     

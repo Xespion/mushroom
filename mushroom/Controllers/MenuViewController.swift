@@ -79,6 +79,8 @@ class MenuViewController: UIViewController {
     
     @IBAction func btnSearch(_ sender: Any)
     {
+        self.setasFiltered = self.setas
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -175,8 +177,21 @@ extension MenuViewController: UISearchBarDelegate
 {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.setasFiltered = self.setas?.filter{(seta: Mushroom) -> Bool in
-            //Aqui meto lo del picker
-            return true
+            //Aqui meto lo del picker Ven Com
+            var flag = false
+            if typeSeta.selectedRow(inComponent: 0) == 0
+            {
+                flag = false
+            }else if(typeSeta.selectedRow(inComponent: 0) == 1)
+            {
+                flag = true
+            }
+            
+            if(seta.type == flag)
+            {
+                return true
+            }
+            return false
         }
         
         if(searchBar.text?.count == 0)
