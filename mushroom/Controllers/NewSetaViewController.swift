@@ -25,6 +25,8 @@ class NewSetaViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var usuario: User!
     
+    var setaUsed: Mushroom!
+    
 //MARK: Olor
     @IBAction func seleccionarOlor(_ sender: Any) {
         viewOlor.isHidden = false;
@@ -201,6 +203,8 @@ class NewSetaViewController: UIViewController {
                 case "2": seta.rings = 2;
                 default: seta.rings = 0;
             }
+            
+            setaUsed = seta
             #if LPS1
             switch clasificacion{
                 case "Comestible": seta.type = true;
@@ -209,13 +213,111 @@ class NewSetaViewController: UIViewController {
             }
             #endif
             #if LPS2
-            //Algoritmo
+            seta.type = calcType()
             #endif
             usuario.addToSetas(seta)
             try! self.context.save()
         }
         dismiss(animated: true, completion: nil)
         
+    }
+
+    func calcType() -> Bool
+    {
+        var odor_e = 0.0
+        var odor_p = 0.0
+        if(setaUsed.odor == "Almendra")
+        {
+            odor_e = 5.25
+            odor_p = -5.25
+        }else if(setaUsed.odor == "Hollin")
+        {
+            odor_e = -1.08
+            odor_p = 1.08
+        }else if(setaUsed.odor == "Pescado")
+        {
+            odor_e = -1.08
+            odor_p = 1.08
+        }else if(setaUsed.odor == "anis")
+        {
+            odor_e = -1.08
+            odor_p = 1.08
+        }else if(setaUsed.odor == "Nada")
+        {
+            odor_e = -1.08
+            odor_p = 1.08
+        }else if(setaUsed.odor == "Rancio")
+        {
+            odor_e = -1.08
+            odor_p = 1.08
+        }else{
+            odor_e = 0
+            odor_p = 0
+        }
+        
+        var pArriba_e = 0.0
+        var pArriba_p = 0.0
+        var pAbajo_e = 0.0
+        var pAbajo_p = 0.0
+        
+        if(setaUsed.upper == "Forma 1")
+        {
+            pArriba_e = 0.53
+            pArriba_p = -0.53
+        }else if(setaUsed.upper == "Forma 2")
+        {
+            pArriba_e = -2.36
+            pArriba_p = 2.36
+        }else{
+            pArriba_e = 0.0
+            pArriba_p = 0.0
+        }
+        
+        if(setaUsed.lower == "Forma 1")
+        {
+            pAbajo_e = 0.42
+            pAbajo_p = -0.42
+        }else if(setaUsed.lower == "Forma 2")
+        {
+            pAbajo_e = -0.95
+            pAbajo_p = 0.95
+        }else if(setaUsed.lower == "Forma 3")
+        {
+            pAbajo_e = -2.52
+            pAbajo_p = 2.52
+        }else{
+            pAbajo_e = 0.0
+            pAbajo_p = 0.0
+        }
+        
+        var ring_e = 0.0
+        var ring_p = 0.0
+        if(setaUsed.rings == 2)
+        {
+            ring_e = 4.83
+            ring_p = -4.83
+        }
+        
+        var color_e = 0.0
+        var color_p = 0.0
+        if(setaUsed.spore == "esporada-negro"){
+            color_e = 0.82
+            color_p = -0.82
+        } else if(setaUsed.spore == "esporada-marron"){
+            color_e = 0.78
+            color_p = -0.78
+        } else if(setaUsed.spore == "esporada-verde"){
+            color_e = -10.04
+            color_p = 10.04
+        } else if(setaUsed.spore == "esporada-blanco"){
+            color_e = -2.77
+            color_p = 2.77
+        }
+        
+        let e = odor_e + pAbajo_e + pArriba_e + ring_e + color_e
+        let p = odor_p + pAbajo_p + pArriba_p + ring_p + color_p
+        
+        return e > p
     }
     
 }

@@ -32,8 +32,8 @@ class MenuViewController: UIViewController {
     var setasFiltered:[Mushroom]?
     var pickerData: [String] = [String]()
     
-    override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+    override func viewWillAppear(_ animated: Bool) {
+        fetchSetas()
     }
     
     override func viewDidLoad()
