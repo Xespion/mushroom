@@ -236,23 +236,20 @@ class NewSetaViewController: UIViewController {
             odor_p = 1.08
         }else if(setaUsed.odor == "Pescado")
         {
-            odor_e = -1.08
-            odor_p = 1.08
+            odor_e = -1.21
+            odor_p = 1.21
         }else if(setaUsed.odor == "anis")
         {
-            odor_e = -1.08
-            odor_p = 1.08
+            odor_e = 5.21
+            odor_p = -5.21
         }else if(setaUsed.odor == "Nada")
         {
-            odor_e = -1.08
-            odor_p = 1.08
+            odor_e = 5.06
+            odor_p = -5.06
         }else if(setaUsed.odor == "Rancio")
         {
-            odor_e = -1.08
-            odor_p = 1.08
-        }else{
-            odor_e = 0
-            odor_p = 0
+            odor_e = -1.59
+            odor_p = 1.59
         }
         
         var pArriba_e = 0.0
@@ -268,9 +265,6 @@ class NewSetaViewController: UIViewController {
         {
             pArriba_e = -2.36
             pArriba_p = 2.36
-        }else{
-            pArriba_e = 0.0
-            pArriba_p = 0.0
         }
         
         if(setaUsed.lower == "Forma 1")
@@ -285,9 +279,6 @@ class NewSetaViewController: UIViewController {
         {
             pAbajo_e = -2.52
             pAbajo_p = 2.52
-        }else{
-            pAbajo_e = 0.0
-            pAbajo_p = 0.0
         }
         
         var ring_e = 0.0
