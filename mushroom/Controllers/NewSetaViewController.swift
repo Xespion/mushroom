@@ -16,7 +16,9 @@ class NewSetaViewController: UIViewController {
     @IBOutlet weak var viewNegra: UIView!
     @IBOutlet weak var viewColor: UIView!
     @IBOutlet weak var viewForma: UIView!
+    @IBOutlet weak var viewTacto: UIView!
     @IBOutlet weak var viewOlor: UIView!
+    @IBOutlet weak var clasifLabel: UILabel!
     @IBOutlet weak var talloSuperior: UILabel!
     @IBOutlet weak var talloInferior: UILabel!
     @IBOutlet weak var olorSeta: UILabel!
@@ -65,34 +67,49 @@ class NewSetaViewController: UIViewController {
         viewNegra.isHidden = true;
     }
     
-//MARK: Tallo superior e inferior
-    var tallo = ""
+//MARK: Tallo superior
     @IBAction func seleccionarTalloSuperior(_ sender: UIButton) {
-        tallo = "superior"
         viewForma.isHidden = false;
         viewNegra.isHidden = false;
     }
-    @IBAction func seleccionarTalloInferior(_ sender: UIButton) {
-        tallo = "inferior"
-        viewForma.isHidden = false;
-        viewNegra.isHidden = false;
+    @IBAction func superiorMarron(_ sender: UIButton) {
+        cambiarColorSuperior(superior:"Marron")
     }
-    @IBAction func talloForma1(_ sender: UIButton) {
-        cambiarFormaTallo(forma: "Forma 1")
+    @IBAction func superiorNegro(_ sender: UIButton) {
+        cambiarColorSuperior(superior:"Blanco")
     }
-    @IBAction func talloForma2(_ sender: UIButton) {
-        cambiarFormaTallo(forma: "Forma 2")
+    @IBAction func superiorAmarillo(_ sender: UIButton) {
+        cambiarColorSuperior(superior:"Amarillo")
     }
-    @IBAction func talloForma3(_ sender: UIButton) {
-        cambiarFormaTallo(forma: "Forma 3")
+    @IBAction func superiorOtro(_ sender: UIButton) {
+        cambiarColorSuperior(superior:"Otro")
     }
-    @IBAction func talloForma4(_ sender: UIButton) {
-        cambiarFormaTallo(forma: "Forma 4")
-    }
-    func cambiarFormaTallo(forma:String){
-        if(tallo == "superior"){ talloSuperior.text = forma }
-        if(tallo == "inferior"){ talloInferior.text = forma }
+    func cambiarColorSuperior(superior:String){
+        talloSuperior.text = superior;
         viewForma.isHidden = true;
+        viewNegra.isHidden = true;
+    }
+    
+//MARK: Tallo inferior
+    @IBAction func seleccionarTalloInferior(_ sender: UIButton) {
+        viewTacto.isHidden = false;
+        viewNegra.isHidden = false;
+    }
+    @IBAction func inferiorFibroso(_ sender: UIButton) {
+        cambiarTactoInferior(tacto:"Fibroso")
+    }
+    @IBAction func inferiorEscamado(_ sender: UIButton) {
+        cambiarTactoInferior(tacto:"Escamado")
+    }
+    @IBAction func inferiorSuave(_ sender: UIButton) {
+        cambiarTactoInferior(tacto:"Suave")
+    }
+    @IBAction func inferiorSedoso(_ sender: UIButton) {
+        cambiarTactoInferior(tacto:"Sedoso")
+    }
+    func cambiarTactoInferior(tacto:String){
+        talloInferior.text = tacto
+        viewTacto.isHidden = true;
         viewNegra.isHidden = true;
     }
     
@@ -147,6 +164,7 @@ class NewSetaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewTacto.isHidden = true;
         viewOlor.isHidden = true;
         viewColor.isHidden = true;
         viewForma.isHidden = true;
@@ -158,6 +176,7 @@ class NewSetaViewController: UIViewController {
         
         #if LPS2
         Clasificacion.isHidden = true
+        clasifLabel.isHidden = true
         #endif
     }
     
@@ -238,7 +257,7 @@ class NewSetaViewController: UIViewController {
         {
             odor_e = -1.21
             odor_p = 1.21
-        }else if(setaUsed.odor == "anis")
+        }else if(setaUsed.odor == "Anis")
         {
             odor_e = 5.21
             odor_p = -5.21
@@ -257,25 +276,25 @@ class NewSetaViewController: UIViewController {
         var pAbajo_e = 0.0
         var pAbajo_p = 0.0
         
-        if(setaUsed.upper == "Forma 1")
+        if(setaUsed.upper == "Fibroso")
         {
             pArriba_e = 0.53
             pArriba_p = -0.53
-        }else if(setaUsed.upper == "Forma 2")
+        }else if(setaUsed.upper == "Sedoso")
         {
             pArriba_e = -2.36
             pArriba_p = 2.36
         }
         
-        if(setaUsed.lower == "Forma 1")
+        if(setaUsed.lower == "Marron")
         {
             pAbajo_e = 0.42
             pAbajo_p = -0.42
-        }else if(setaUsed.lower == "Forma 2")
+        }else if(setaUsed.lower == "Blanco")
         {
             pAbajo_e = -0.95
             pAbajo_p = 0.95
-        }else if(setaUsed.lower == "Forma 3")
+        }else if(setaUsed.lower == "Amarillo")
         {
             pAbajo_e = -2.52
             pAbajo_p = 2.52
@@ -305,8 +324,8 @@ class NewSetaViewController: UIViewController {
             color_p = 2.77
         }
         
-        let e = odor_e + pAbajo_e + pArriba_e + ring_e + color_e
-        let p = odor_p + pAbajo_p + pArriba_p + ring_p + color_p
+        let e = -1.51 + odor_e + pAbajo_e + pArriba_e + ring_e + color_e
+        let p = 1.51 + odor_p + pAbajo_p + pArriba_p + ring_p + color_p
         
         return e > p
     }

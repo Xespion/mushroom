@@ -49,7 +49,7 @@ class MenuViewController: UIViewController {
         seta.upper = "Nose"
         seta.spore = "Negro"
         seta.type = true
-        pickerData = ["Venenosa", "Comestible"]
+        pickerData = ["Venenosa", "Comible"]
         nombre.text = usuario.username
 
         self.typeSeta.delegate = self
@@ -137,9 +137,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource
         
         if seta.type
         {
-            cell.imagen.image = UIImage(named: "tick")
+            cell.imagen.image = UIImage(named: "Seta_Comestible")
         }else{
-            cell.imagen.image = UIImage(named: "Logo")
+            cell.imagen.image = UIImage(named: "Seta_Venenosa")
         }
         return cell
     }
