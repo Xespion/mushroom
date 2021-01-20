@@ -26,13 +26,8 @@ class ViewController: UIViewController {
          newUser.mail = "admin@admin.com"
          newUser.password = "admin"
          try! self.context.save()*/
- 
-        
+
         fetch_users()
-        for i in items!
-        {
-            print(i.username! + " " + i.password!)
-        }
     }
     
     func fetch_users()

@@ -9,9 +9,7 @@ class RegistroViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet weak var contrasenaTxt: UITextField!
     @IBOutlet weak var repeatContrasenaTxt: UITextField!
     
-    @IBOutlet weak var imgView: UIImageView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,32 +29,6 @@ class RegistroViewController: UIViewController, UITextFieldDelegate, UIImagePick
      */
     
     // MARK: Actions
-    
-    @IBAction func selccionarImagen(_ sender: UITapGestureRecognizer) {
-        let picker = UIImagePickerController()
-        
-        picker.delegate = self
-        picker.allowsEditing = true
-        picker.sourceType = .photoLibrary
-        
-        present(picker, animated: true)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let img = info[.editedImage] as? UIImage {
-            imgView.image = img
-        }
-        else if let img = info[.originalImage] as? UIImage {
-            imgView.image = img
-        }
-        
-        picker.dismiss(animated: true)
-    }
-    
     
     @IBAction func registrarBtn(_ sender: UIButton) {
         
@@ -82,12 +54,6 @@ class RegistroViewController: UIViewController, UITextFieldDelegate, UIImagePick
             newUser.username = nombreTxt.text
             newUser.mail = emailTxt.text
             newUser.password = contrasenaTxt.text
-            
-            /*if let imageData = imgView.image?.pngData() {
-                newUser.image = imageData as NSData
-            }*/
-            
-            newUser.image = imgView.image?.pngData() as NSData?
 
             try! self.context.save()
             

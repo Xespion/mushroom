@@ -2,8 +2,8 @@
 //  NewSetaViewController.swift
 //  mushroom
 //
-//  Created by Alex on 24/11/2020.
-//  Copyright © 2020 Alex. All rights reserved.
+//  Created by Mushroom on 24/11/2020.
+//  Copyright © 2020 Mushroom. All rights reserved.
 //
 
 import UIKit
@@ -172,6 +172,8 @@ class NewSetaViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         #if LPS1
+        Clasificacion.isHidden = false
+        clasifLabel.isHidden = false
         #endif
         
         #if LPS2
@@ -200,13 +202,22 @@ class NewSetaViewController: UIViewController {
             
             alertControl.addAction(ok)
             self.present(alertControl, animated: true, completion: nil)
-        } else if(talloSuperior.text == "Nada" || talloInferior.text == "Nada"){
-            let alertControl = UIAlertController(title: "Indica la forma", message: "Debes indicar la forma del tallo superior e inferior.", preferredStyle: .alert)
+        } else if(talloSuperior.text == "Nada"){
+            let alertControl = UIAlertController(title: "Indica la color del tallo superior", message: "Debes indicar un color para el tallo superior.", preferredStyle: .alert)
             
             let ok = UIAlertAction(title: "Okey", style: .default)
             
             alertControl.addAction(ok)
             self.present(alertControl, animated: true, completion: nil)
+        }else if(talloInferior.text == "Nada"){
+            
+            let alertControl = UIAlertController(title: "Indica el tacto del tallo inferior", message: "Debes indicar el tacto que tiene el tallo inferior.", preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "Okey", style: .default)
+            
+            alertControl.addAction(ok)
+            self.present(alertControl, animated: true, completion: nil)
+            
         }else {
             let anillos = Anillos.titleForSegment(at: Anillos.selectedSegmentIndex)
             let clasificacion = Clasificacion.titleForSegment(at: Clasificacion.selectedSegmentIndex)
