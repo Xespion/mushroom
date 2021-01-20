@@ -2,8 +2,8 @@
 //  AyudaViewController.swift
 //  mushroom
 //
-//  Created by Alonso Bravo Moyano on 25/11/20.
-//  Copyright © 2020 Alex. All rights reserved.
+//  Created by Mushroom on 25/11/20.
+//  Copyright © 2020 Mushroom. All rights reserved.
 //
 
 import UIKit

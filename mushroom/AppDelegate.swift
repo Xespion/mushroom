@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  mushroom
 //
-//  Created by Alex on 18/11/2020.
-//  Copyright © 2020 Alex. All rights reserved.
+//  Created by Mushroom on 18/11/2020.
+//  Copyright © 2020 Mushroom. All rights reserved.
 //
 
 import UIKit

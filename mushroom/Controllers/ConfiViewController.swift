@@ -2,8 +2,8 @@
 //  ConfiViewController.swift
 //  mushroom
 //
-//  Created by Alex on 09/12/2020.
-//  Copyright © 2020 Alex. All rights reserved.
+//  Created by Mushroom on 09/12/2020.
+//  Copyright © 2020 Mushroom. All rights reserved.
 //
 
 import UIKit

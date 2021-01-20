@@ -2,8 +2,8 @@
 //  MenuViewController.swift
 //  mushroom
 //
-//  Created by Alex on 24/11/2020.
-//  Copyright © 2020 Alex. All rights reserved.
+//  Created by Mushroom on 24/11/2020.
+//  Copyright © 2020 Mushroom. All rights reserved.
 //
 
 import UIKit
