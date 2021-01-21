@@ -17,16 +17,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Añadir usuarios a la base de datos:
-        
-         /*let newUser = User(context: self.context)
-         newUser.username = "admin"
-         newUser.image = UIImage(named: "Logo")!.pngData() as NSData?
-         newUser.mail = "admin@admin.com"
-         newUser.password = "admin"
-         try! self.context.save()*/
-
         fetch_users()
     }
     
